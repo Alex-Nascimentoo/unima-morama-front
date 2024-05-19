@@ -1,8 +1,12 @@
 import React from 'react';
+import {
+  SideBar,
+  Header,
+  HeaderContainer
+} from '../styles/components/Layout';
 import { Icon } from '../styles/Global';
 import { Link } from 'react-router-dom';
 import { theme } from '../styles/Theme';
-import { Header, HeaderContainer, SideBar } from '../styles/Layout';
 
 type LayoutProps = {
   children: React.ReactNode;
