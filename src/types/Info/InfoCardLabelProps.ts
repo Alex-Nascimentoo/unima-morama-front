@@ -1,3 +1,0 @@
-type infoCardLabelProps = {
-    $value: number
-}
