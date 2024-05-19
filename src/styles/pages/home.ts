@@ -26,4 +26,7 @@ export const HomeContainer = styled.main`
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
 `;
