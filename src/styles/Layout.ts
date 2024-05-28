@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '../Theme';
+import { theme } from './Theme';
 
 export const HeaderContainer = styled.div`
   display: flex;
@@ -9,10 +9,11 @@ export const HeaderContainer = styled.div`
 
   margin: 0 auto;
   padding: 0 0 0 3.5rem;
+
 `;
 
 export const SideBar = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
@@ -42,7 +43,6 @@ export const SideBar = styled.div`
   }
 
   @media only screen and (max-width: 768px) {
-    position: fixed;
 
     flex-direction: row;
     align-items: center;
@@ -66,7 +66,7 @@ export const SideBar = styled.div`
 `;
 
 export const Header = styled.header`
-  position: sticky;
+  position: fixed;
 
   width: calc(100% - 5rem);
   padding: 1rem 1rem 1rem 6rem;

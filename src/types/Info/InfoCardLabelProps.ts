@@ -1,0 +1,3 @@
+type infoCardLabelProps = {
+    $value: number
+}
