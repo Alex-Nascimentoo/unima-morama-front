@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { theme } from '../../Theme';
+import { theme } from '../Theme';
 
 export const ListHeader = styled.div`
   display: grid;
@@ -20,4 +20,12 @@ export const ListHeader = styled.div`
 
     justify-self: left;
   }
+`;
+
+export const ListContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+
+  padding-top: 1rem;
 `;
