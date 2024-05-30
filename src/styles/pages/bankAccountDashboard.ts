@@ -15,8 +15,8 @@ export const ListHeader = styled.div`
 
   color: ${theme.color.white};
 
-  #company-name {
-    grid-column: span 3;
+  #account-name {
+    grid-column: span 2;
 
     justify-self: left;
   }
