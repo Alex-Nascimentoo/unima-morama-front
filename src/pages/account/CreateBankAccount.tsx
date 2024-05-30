@@ -1,92 +1,42 @@
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
-import { Form, Label, SelectInput, TextInput } from '../../styles/pages/createContact';
-import { states } from '../../utils/auxData';
+import { Form, Label, TextInput } from '../../styles/pages/createContact';
 
 async function handleSubmit(e: any) {
   e.preventDefault();
-  alert("Novo contato enviado para cadastro");
+  alert("Nova conta bancária enviada para cadastro");
 }
 
-function CreateContact() {
+function CreateBankAccount() {
   return (
     <main>
       <Container>
         <PageHeader>
-          <h1>Novo contato</h1>
+          <h1>Nova conta bancária</h1>
         </PageHeader>
 
         <Form>
           {/* First row */}
-          <Label>
-            CNPJ/CPF
+          <Label className='full-column'>
+            Nome
             <TextInput
-              placeholder='00.000.000/0001-00'
-            />
-          </Label>
-
-          <Label>
-            Telefone
-            <TextInput
-              placeholder='(00) 90000-0000'
+              placeholder='Conta muito top'
             />
           </Label>
 
           {/* Second row */}
-          <Label className='full-column'>
-            Nome Fantasia
-            <TextInput
-              placeholder='Ex: Empresa Bonita'
-            />
-          </Label>
 
-          {/* Third row */}
-          <Label className='full-column'>
-            Razão Social
-            <TextInput
-              placeholder='Ex: Empresa Bonita LTDA'
-            />
-          </Label>
-
-          {/* Fourth row */}
           <Label>
-            CEP
+            Instituição
             <TextInput
-              placeholder='00-000.000'
+              placeholder='Banco Morama'
             />
           </Label>
 
           <Label>
-            UF
-            <SelectInput>
-              { 
-                Object.entries(states).map(([key, value]) => (
-                  <option value={key}>{ value }</option>
-                ))
-              }
-            </SelectInput>
-          </Label>
-
-          {/* Fifth row */}
-          <Label>
-            Cidade
+            Saldo em conta
             <TextInput
-              placeholder='Ex: Maceió'
-            />
-          </Label>
-
-          <Label>
-            Bairro
-            <TextInput
-              placeholder='Ex: Bairro Linda Moradia'
-            />
-          </Label>
-          
-          {/* Sixth row */}
-          <Label className='full-column'>
-            Endereço
-            <TextInput
-              placeholder='Ex: Rua Muito Linda, n° 7'
+              placeholder='9.999.999,97'
             />
           </Label>
 
@@ -102,4 +52,4 @@ function CreateContact() {
   )
 }
 
-export default CreateContact
+export default CreateBankAccount
