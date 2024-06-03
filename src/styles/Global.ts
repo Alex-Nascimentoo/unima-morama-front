@@ -62,7 +62,9 @@ export const Icon = styled.img<{
 `;
 
 export const Container = styled.div`
-  display: inline-block;
+padding-top: 4rem;
+  
+display: inline-block;
 
   width: 100%;
 
