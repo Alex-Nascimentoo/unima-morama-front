@@ -29,8 +29,7 @@ function App() {
 
             <Route path='/finance'>
               <Route path='dashboard' element={<FinanceDashboard />} />
-              <Route path='create' element={<CreateContact />} />
-              <Route path='edit/:id' element={<EditContact />} />
+              <Route path='create' element={<CreateFinance />} />
             </Route>
           </Routes>
         </Layout>
