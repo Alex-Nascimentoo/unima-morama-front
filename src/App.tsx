@@ -8,6 +8,7 @@ import ContactDashboard from './pages/contact/ContactDashboard';
 import CreateContact from './pages/contact/CreateContact';
 import EditContact from './pages/contact/EditContact';
 import FinanceDashboard from './pages/finance/FinanceDashboard';
+import CreateFinance from './pages/finance/CreateFinance';
 
 
 
