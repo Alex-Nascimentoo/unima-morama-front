@@ -7,6 +7,7 @@ import { theme } from './styles/Theme';
 import ContactDashboard from './pages/contact/ContactDashboard';
 import CreateContact from './pages/contact/CreateContact';
 import EditContact from './pages/contact/EditContact';
+import FinanceDashboard from './pages/finance/FinanceDashboard';
 
 
 
@@ -22,6 +23,12 @@ function App() {
 
             <Route path='/contact'>
               <Route path='dashboard' element={<ContactDashboard />} />
+              <Route path='create' element={<CreateContact />} />
+              <Route path='edit/:id' element={<EditContact />} />
+            </Route>
+
+            <Route path='/finance'>
+              <Route path='dashboard' element={<FinanceDashboard />} />
               <Route path='create' element={<CreateContact />} />
               <Route path='edit/:id' element={<EditContact />} />
             </Route>
