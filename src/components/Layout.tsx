@@ -41,7 +41,7 @@ function Layout(props: LayoutProps) {
           <Icon $src="/icon-products.svg" />
         </Link>
         
-        <Link to=''>
+        <Link to='/finance/dashboard'>
           <Icon $src="/icon-money.svg" />
         </Link>
       </SideBar>
