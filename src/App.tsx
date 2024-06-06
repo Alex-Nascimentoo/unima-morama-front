@@ -25,6 +25,11 @@ function App() {
               <Route path='create' element={<CreateContact />} />
               <Route path='edit/:id' element={<EditContact />} />
             </Route>
+            <Route path='/products'>
+              <Route path='dashboard' element={<ProductsDashboard />} />
+              <Route path='create' element={<CreateProduct />} />
+              <Route path='edit/:id' element={<EditProduct />} />
+            </Route>
           </Routes>
         </Layout>
       </BrowserRouter>
