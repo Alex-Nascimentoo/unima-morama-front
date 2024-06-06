@@ -55,3 +55,14 @@ export const ContactCard = styled.div`
     }
   }
 `;
+
+export const Container = styled.div`
+  margin-top: 4rem;
+  
+  display: inline-block;
+
+  width: 100%;
+
+  padding-left: 3.5rem;
+`;
+

@@ -1,8 +1,8 @@
-import { Container, Icon, PageHeader } from '../../styles/Global';
+import { Icon, PageHeader } from '../../styles/Global';
 import { ListContent } from '../../styles/pages/contactDashboard';
 import { Button } from '../../styles/components';
 import { Link } from 'react-router-dom';
-import { ContactCard, ListHeader } from '../../styles/pages/productsDashboard';
+import { ContactCard, Container, ListHeader } from '../../styles/pages/productsDashboard';
 
 export default function ProductsDashboard() {
   return (
