@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { theme } from '../Theme';
+import styled from "styled-components";
+import { theme } from "../Theme";
 
 export const ListHeader = styled.div`
   display: grid;
@@ -15,19 +15,11 @@ export const ListHeader = styled.div`
 
   color: ${theme.color.white};
 
-  #company-name {
-    grid-column: span 3;
+  #name {
+    grid-column: span 2;
 
     justify-self: left;
   }
-`;
-
-export const ListContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  row-gap: 1rem;
-
-  padding-top: 1rem;
 `;
 
 export const ContactCard = styled.div`
@@ -44,9 +36,9 @@ export const ContactCard = styled.div`
 
   font-size: 1.3rem;
 
-  p:first-child {
+  .name {
+    grid-column: span 2;
     justify-self: left;
-    grid-column: span 3;
   }
 
   img:hover {
