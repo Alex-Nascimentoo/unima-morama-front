@@ -7,6 +7,9 @@ import { theme } from './styles/Theme';
 import ContactDashboard from './pages/contact/ContactDashboard';
 import CreateContact from './pages/contact/CreateContact';
 import EditContact from './pages/contact/EditContact';
+import ProductsDashboard from './pages/products/ProductsDashboard';
+import CreateProducts from './pages/products/CreateProducts';
+import EditProducts from './pages/products/EditProducts';
 
 
 
@@ -27,8 +30,8 @@ function App() {
             </Route>
             <Route path='/products'>
               <Route path='dashboard' element={<ProductsDashboard />} />
-              <Route path='create' element={<CreateProduct />} />
-              <Route path='edit/:id' element={<EditProduct />} />
+              <Route path='create' element={<CreateProducts />} />
+              <Route path='edit/:id' element={<EditProducts />} />
             </Route>
           </Routes>
         </Layout>
