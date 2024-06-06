@@ -15,18 +15,13 @@ export const Form = styled.form`
   }
 `;
 
-export const TextInput = styled.input`
-  border: none;
-  border-radius: 7px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  row-gap: .2rem;
 
-  padding: .5rem 1rem;
-
-  font-size: 1rem;
-
-  &:focus {
-    outline: none;
-  }
+  font-weight: 500;
+  font-size: 1.2rem;
 `;
 
 export const SelectInput = styled.select`
@@ -40,11 +35,16 @@ export const SelectInput = styled.select`
   font-size: 1rem;
 `;
 
-export const Label = styled.label`
-  display: flex;
-  flex-direction: column;
-  row-gap: .2rem;
+export const TextInput = styled.input`
+  border: none;
+  border-radius: 7px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
 
-  font-weight: 500;
-  font-size: 1.2rem;
+  padding: .5rem 1rem;
+
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+  }
 `;
