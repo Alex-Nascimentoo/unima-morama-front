@@ -1,4 +1,3 @@
-import { PageHeader } from '../../styles/Global';
 import { TextInput } from '../../styles/pages/createContact';
 import { handleSubmit } from '../../controllers/contactController';
 import { BackgroundImg, Button, RightCard, LeftCard, Screen, Form, Img, Label, Container, ImgLabel } from '../../styles/pages/login'
