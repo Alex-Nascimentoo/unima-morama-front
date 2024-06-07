@@ -1,15 +1,22 @@
 import styled from "styled-components";
 import { theme } from "../Theme";
 
+export const MainLogin = styled.main`
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin: 0;
+`;
+
 export const BackgroundImg = styled.img`
-    width: 100vw;
-    height: auto;
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1; 
     transform: scale(1.1, 1.1);
-    filter: blur(5px)
+    filter: blur(5px);
 `;
 
 export const Img = styled.img`
@@ -82,9 +89,6 @@ export const Screen = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
-
-  padding-left: 3.5rem;
 `;
 
 export const Container = styled.div`
