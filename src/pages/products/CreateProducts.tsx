@@ -1,7 +1,7 @@
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Form, Label, SelectInput, TextInput } from '../../styles/pages/createProducts';
-import { states } from '../../utils/auxData';
+import { suppliers } from '../../utils/auxData';
 import { handleSubmit } from '../../controllers/contactController';
 
 function CreateProducts() {
@@ -25,7 +25,12 @@ function CreateProducts() {
           <Label className='full-column'>
             Fornecedor
             <SelectInput>
-
+              { 
+                Object.entries(suppliers).map((value) => (
+                  <option value={value}>
+                    { value }</option>
+                ))
+              }
             </SelectInput>
           </Label>
 

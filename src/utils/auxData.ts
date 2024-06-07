@@ -27,3 +27,7 @@ export const states = {
   'se': 'Sergipe',
   'to': 'Tocantins'
 }
+
+export const suppliers = [
+'John Doe Company LTDA', 'another company LTDA'
+];
