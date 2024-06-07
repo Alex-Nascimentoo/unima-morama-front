@@ -26,9 +26,10 @@ function CreateProducts() {
             Fornecedor
             <SelectInput>
               { 
-                Object.entries(suppliers).map((value) => (
-                  <option value={value}>
-                    { value }</option>
+                suppliers.map((value, index) => (
+                  <option key={index} value={value}>
+                    {value}
+                  </option>
                 ))
               }
             </SelectInput>
