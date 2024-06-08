@@ -89,7 +89,7 @@ export const StatusCard = styled.div<{ status: "paid" | "active" | "late" }>`
   color: white;
 `;
 
-export const Filter = styled.div<{ state: boolean }>`
+export const Filter = styled.div<{ state: string }>`
   border: none;
   background: none;
 
@@ -100,7 +100,7 @@ export const Filter = styled.div<{ state: boolean }>`
 
   font-size: 1.3rem;
   font-weight: 500;
-  color: ${props => (props.state === false ? theme.color.red : theme.color.green)};
+  color: ${props => (props.state === "false" ? theme.color.red : theme.color.green)};
 
   &:hover {
     cursor: pointer; 

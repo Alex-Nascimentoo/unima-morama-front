@@ -1,13 +1,13 @@
 import { ErrorMsg, TextInput } from '../../styles/pages/createContact';
 import { BackgroundImg, Button, RightCard, LeftCard, Screen, Form, Img, Label, Container, ImgLabel, MainLogin } from '../../styles/pages/login'
-import { setCookie } from 'nookies';
+import { destroyCookie, setCookie } from 'nookies';
 import axios from 'axios';
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [inputs, setInputs] = useState({ email: '', password: '' });
+  const [ inputs, setInputs ] = useState({ email: '', password: '' });
   const [ error, setError ] = useState(false);
   const { setAuthUser } = useAuth()
   const navigate = useNavigate();
@@ -23,20 +23,16 @@ function Login() {
     event.preventDefault();
 
     try {
-      console.log(inputs);
       const response = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/auth`, inputs);
+      destroyCookie(undefined, 'access_token', { path: "/" });
       
       if (response.status === 200) {
-        const { client_id, access_token } = response.data;
-
+        const { access_token } = response.data;
         setCookie(null, 'access_token', access_token, {
           maxAge: 30 * 24 * 60 * 60,
           path: '/', 
         });
-        setCookie(null, 'client_id', client_id, {
-          maxAge: 30 * 24 * 60 * 60,
-          path: '/', 
-        });
+        
         setAuthUser(true)
         navigate("/home")
 
