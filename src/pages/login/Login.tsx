@@ -92,7 +92,6 @@ function Login() {
                   Envie credenciais válidas.
                 </ErrorMsg>
                 }
-                
               </Form>
             </RightCard>
             </Container>

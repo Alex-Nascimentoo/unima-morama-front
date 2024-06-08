@@ -32,11 +32,7 @@ function App() {
                 <Route path='/' element={<PrivateRoutes />}>
 
                   <Route path='home' element={<MainDashboard />} />
-                    <Route path='/bank_account'>
-                      <Route path='dashboard' element={<BankAccountDashboard />} />
-                      <Route path='create' element={<CreateBankAccount />} />
-                      <Route path='edit/:id' element={<EditBankAccount />} />
-                    </Route>
+                    
                     <Route path='/contact'>
                       <Route path='dashboard' element={<ContactDashboard />} />
                       <Route path='create' element={<CreateContact />} />
@@ -50,6 +46,11 @@ function App() {
                     <Route path='/finance'>
                       <Route path='dashboard' element={<FinanceDashboard />} />
                       <Route path='create' element={<CreateFinance />} />
+                    </Route>
+                    <Route path='/bank_account'>
+                      <Route path='dashboard' element={<BankAccountDashboard />} />
+                      <Route path='create' element={<CreateBankAccount />} />
+                      <Route path='edit/:id' element={<EditBankAccount />} />
                     </Route>
                   
                   </Route>

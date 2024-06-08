@@ -23,12 +23,12 @@ function CreateFinance() {
           <FilterButton onClick={() => toggleFilterState(prev => !prev)}>
               {filterState ?
                 <Filter state={filterState}>
-                  <p>Receitas</p>
+                  <p>Receita</p>
                   <Icon $color={theme.color.green} $src="/icon-plus.svg" />
                 </Filter>
                 :
                 <Filter state={filterState}>
-                  Despesas
+                  Despesa
                   <Icon $color={theme.color.red} $src="/icon-dash.svg" />
                 </Filter>
               }
