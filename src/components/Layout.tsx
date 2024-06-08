@@ -38,7 +38,7 @@ function Layout(props: LayoutProps) {
               <Icon $src="/icon-clients.svg" />
             </Link>
             
-            <Link to=''>
+            <Link to='/products/dashboard'>
               <Icon $src="/icon-products.svg" />
             </Link>
             
@@ -48,7 +48,6 @@ function Layout(props: LayoutProps) {
           </SideBar>
         </div>
       )}
-
       {props.children}
     </>
   );
