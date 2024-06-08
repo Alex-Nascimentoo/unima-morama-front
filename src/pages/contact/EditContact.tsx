@@ -5,10 +5,7 @@ import { Form, Label, TextInput } from '../../styles/pages/createContact';
 import api from '../../api/api';
 import { ChangeEvent, useEffect, useState } from 'react';
 
-async function handleSubmit(e: any) {
-  e.preventDefault();
-  alert("Contato editado com sucesso!");
-}
+
 
 function EditContact() {
   const { id } = useParams()
@@ -39,6 +36,12 @@ function EditContact() {
     }
   }
   
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+    alert("Contato editado com sucesso!");
+    editContact()
+  }
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setContactContent(e.target.value); 
   };
