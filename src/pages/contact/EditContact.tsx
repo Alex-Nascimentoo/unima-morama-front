@@ -28,7 +28,6 @@ function EditContact() {
       const response = await api.patch(`/supplier/${id}`);
       
       if (response.status === 200) {
-        setContactContent(response.data.name);
         alert("Contato editado com sucesso!")
       } 
     } catch (error: any) {
@@ -38,7 +37,6 @@ function EditContact() {
   
   async function handleSubmit(e: any) {
     e.preventDefault();
-    alert("Contato editado com sucesso!");
     editContact()
   }
 
@@ -59,7 +57,6 @@ function EditContact() {
         </PageHeader>
 
         <Form>
-          {/* Second row */}
           <Label className='full-column'>
             Nome Fantasia
             <TextInput
