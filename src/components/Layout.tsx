@@ -29,19 +29,19 @@ function Layout(props: LayoutProps) {
             <Link to='/home'>
               <Icon id='logo' $src="/icon-strawberry.svg" />
             </Link>
-
+            
             <Link to=''>
               <Icon $src="/icon-cart.svg" />
             </Link>
-            
+
             <Link to='/contact/dashboard'>
               <Icon $src="/icon-clients.svg" />
             </Link>
-            
+
             <Link to='/products/dashboard'>
               <Icon $src="/icon-products.svg" />
             </Link>
-            
+
             <Link to=''>
               <Icon $src="/icon-money.svg" />
             </Link>

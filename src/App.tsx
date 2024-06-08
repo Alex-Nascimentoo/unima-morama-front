@@ -14,16 +14,13 @@ import { AuthProvider } from './context/AuthProvider';
 import MainDashboard from './pages/MainDashboard';
 import Layout from './components/Layout';
 
-
 function App() {
   return (
     <ThemeProvider theme={theme}>      
         <AuthProvider>
           <GlobalStyles />
-
           <BrowserRouter>
             <Layout>
-
               <Routes>
                 <Route path='/login' element={<Login />} />
 
