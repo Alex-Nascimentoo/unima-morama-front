@@ -68,7 +68,7 @@ export const ContactCard = styled.div`
   }
 `;
 
-export const StatusCard = styled.div<{ status: "paid" | "active" | "late" }>`
+export const StatusCard = styled.div<{ $status: "paid" | "active" | "late" }>`
   display: flex;
   justify-content: center;
   justify-items: center;
@@ -77,7 +77,7 @@ export const StatusCard = styled.div<{ status: "paid" | "active" | "late" }>`
   padding: 0.6rem;
 
   background-color: ${props => {
-    switch (props.status) {
+    switch (props.$status) {
       case "paid":
         return theme.color.green;
       case "active":
@@ -89,7 +89,7 @@ export const StatusCard = styled.div<{ status: "paid" | "active" | "late" }>`
   color: white;
 `;
 
-export const Filter = styled.div<{ state: string }>`
+export const Filter = styled.div<{ $state: string }>`
   border: none;
   background: none;
 
@@ -100,7 +100,7 @@ export const Filter = styled.div<{ state: string }>`
 
   font-size: 1.3rem;
   font-weight: 500;
-  color: ${props => (props.state === "false" ? theme.color.red : theme.color.green)};
+  color: ${props => (props.$state === "debt" ? theme.color.red : theme.color.green)};
 
   &:hover {
     cursor: pointer; 

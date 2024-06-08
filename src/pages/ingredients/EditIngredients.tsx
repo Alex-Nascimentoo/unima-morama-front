@@ -5,18 +5,16 @@ import { Form, Label, TextInput } from '../../styles/pages/createContact';
 import api from '../../api/api';
 import { ChangeEvent, useEffect, useState } from 'react';
 
-
-
-function EditContact() {
+function EditIngredient() {
   const { id } = useParams()
-  const [ contactContent, setContactContent ] = useState("")
+  const [ ingredientName, setIngredientName ] = useState("")
 
   const fetchContact = async () => {
     try {
       const response = await api.get(`/supplier/${id}`);
       
       if (response.status === 200) {
-        setContactContent(response.data.name);
+        setIngredientName(response.data.name);
       } 
     } catch (error: any) {
       console.error('Error:', error.message);
@@ -28,7 +26,7 @@ function EditContact() {
       const response = await api.patch(`/supplier/${id}`);
       
       if (response.status === 200) {
-        alert("Contato editado com sucesso!")
+        alert("Ingrediente editado com sucesso!")
       } 
     } catch (error: any) {
       console.error('Error:', error.message);
@@ -41,7 +39,7 @@ function EditContact() {
   }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setContactContent(e.target.value); 
+    setIngredientName(e.target.value); 
   };
 
 
@@ -53,15 +51,15 @@ function EditContact() {
     <main>
       <Container>
         <PageHeader>
-          <h1>Editar contato</h1>
+          <h1>Editar ingrediente</h1>
         </PageHeader>
 
         <Form>
           <Label className='full-column'>
-            Nome Fantasia
+            Nome do Ingrediente
             <TextInput
-              placeholder='Ex: Empresa Bonita'
-              value={contactContent}
+              placeholder='Ex: Cebolinha'
+              value={ingredientName}
               onChange={handleChange}
             />
           </Label>
@@ -78,4 +76,4 @@ function EditContact() {
   )
 }
 
-export default EditContact
+export default EditIngredient

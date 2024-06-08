@@ -50,3 +50,15 @@ export const banks = {
 export const suppliers = [
 'John Doe Company LTDA', 'another company LTDA'
 ];
+
+export const unit_systems = {
+  'half_dozen': "Meia dúzia",
+  'dozen': "Uma dúzia",
+
+  'kg': "Quilos",
+  'grams': "Gramas",
+
+  'ml': "Mililitros",
+  'L': "Litros",
+};
+  

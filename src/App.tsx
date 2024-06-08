@@ -18,6 +18,10 @@ import PrivateRoutes from './components/PrivateRoutes';
 import { AuthProvider } from './context/AuthProvider';
 import MainDashboard from './pages/MainDashboard';
 import Layout from './components/Layout';
+import IngredientDashboard from './pages/ingredients/IngredientsDashboard';
+import CreateIngredient from './pages/ingredients/CreateIngredients';
+import PurchaseIngredient from './pages/ingredients/PurchaseIngredients';
+import EditIngredient from './pages/ingredients/EditIngredients';
 
 function App() {
   return (
@@ -33,6 +37,14 @@ function App() {
 
                   <Route path='home' element={<MainDashboard />} />
                     
+                    <Route path='/ingredients'>
+                      <Route path='dashboard' element={<IngredientDashboard />} />
+                      <Route path='create' element={<CreateIngredient />} />
+                      <Route path='purchase/:id' element={<PurchaseIngredient />} />
+                      <Route path='edit/:id' element={<EditIngredient />} />
+
+                    </Route>
+
                     <Route path='/contact'>
                       <Route path='dashboard' element={<ContactDashboard />} />
                       <Route path='create' element={<CreateContact />} />

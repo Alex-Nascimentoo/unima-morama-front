@@ -30,7 +30,7 @@ function Layout(props: LayoutProps) {
               <Icon id='logo' $src="/icon-strawberry.svg" />
             </Link>
             
-            <Link to=''>
+            <Link to='/ingredients/dashboard'>
               <Icon $src="/icon-cart.svg" />
             </Link>
 
