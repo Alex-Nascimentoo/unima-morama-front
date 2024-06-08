@@ -45,6 +45,10 @@ function Layout(props: LayoutProps) {
             <Link to='/bank_account/dashboard'>
               <Icon $src="/icon-money.svg" />
             </Link>
+            
+             <Link to='/finance/dashboard'>
+              <Icon $src="/icon-money.svg" />
+            </Link>
           </SideBar>
         </div>
       )}

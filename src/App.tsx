@@ -5,6 +5,8 @@ import { theme } from './styles/Theme';
 import ContactDashboard from './pages/contact/ContactDashboard';
 import CreateContact from './pages/contact/CreateContact';
 import EditContact from './pages/contact/EditContact';
+import FinanceDashboard from './pages/finance/FinanceDashboard';
+import CreateFinance from './pages/finance/CreateFinance';
 import BankAccountDashboard from './pages/account/BankAccountDashboard';
 import CreateBankAccount from './pages/account/CreateBankAccount';
 import EditBankAccount from './pages/account/EditBankAccount';
@@ -45,6 +47,11 @@ function App() {
                       <Route path='create' element={<CreateProducts />} />
                       <Route path='edit/:id' element={<EditProducts />} />
                     </Route>
+                    <Route path='/finance'>
+                      <Route path='dashboard' element={<FinanceDashboard />} />
+                      <Route path='create' element={<CreateFinance />} />
+                    </Route>
+                  
                   </Route>
               </Routes>
              </Layout>

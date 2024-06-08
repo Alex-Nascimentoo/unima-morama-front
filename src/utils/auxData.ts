@@ -28,6 +28,25 @@ export const states = {
   'to': 'Tocantins'
 }
 
+export const clients = {
+  "fulaninho": "Fulano Silva Pinto",
+  "sicraninho": "Sicrano Barbosa"
+}
+
+export const paymentMethods = {
+  "px": "Pix",
+  "db": "Débito",
+  "cd": "Crédito",
+  "mn": "Espécie",
+}
+
+export const banks = {
+  "bb": "Banco do Brasil",
+  "st": "Santander",
+  "nu": "Nu Pagamentos S.A",
+  "mp": "Mercado Pago",
+}
+
 export const suppliers = [
 'John Doe Company LTDA', 'another company LTDA'
 ];
