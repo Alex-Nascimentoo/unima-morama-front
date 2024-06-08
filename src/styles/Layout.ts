@@ -30,6 +30,8 @@ export const SideBar = styled.div`
   width: 6rem;
   padding-top: 1.3rem;
 
+  z-index: 1;
+
   #logo {
     margin-bottom: 2.5rem;
   }
@@ -77,6 +79,8 @@ export const Header = styled.header`
   box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
 
   color: ${theme.color.white};
+
+  z-index: 1;
 
   img:hover {
     transition: .1s;

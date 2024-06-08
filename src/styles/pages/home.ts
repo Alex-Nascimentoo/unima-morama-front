@@ -9,6 +9,7 @@ export const RightDashboardPannel = styled.section`
   flex-direction: column;
   gap: 1rem;
   margin: 1rem;
+  padding: 1rem;
   flex-grow: 1;
 
   background-color: ${theme.color.absoluteWhite};
