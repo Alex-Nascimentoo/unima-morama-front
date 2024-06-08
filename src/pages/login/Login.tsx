@@ -1,4 +1,4 @@
-import { TextInput } from '../../styles/pages/createContact';
+import { ErrorMsg, TextInput } from '../../styles/pages/createContact';
 import { BackgroundImg, Button, RightCard, LeftCard, Screen, Form, Img, Label, Container, ImgLabel, MainLogin } from '../../styles/pages/login'
 import { setCookie } from 'nookies';
 import axios from 'axios';
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
   const [inputs, setInputs] = useState({ email: '', password: '' });
+  const [ error, setError ] = useState(false);
   const { setAuthUser } = useAuth()
   const navigate = useNavigate();
   setAuthUser(false)
@@ -42,7 +43,7 @@ function Login() {
       } 
     } catch (error: any) {
       console.error('Error:', error.message);
-      alert(`${error}`)
+      setError(true)
     }
   };
   
@@ -85,6 +86,13 @@ function Login() {
                 >
                   Login
                 </Button>
+                
+                {error && 
+                <ErrorMsg>
+                  Envie credenciais válidas.
+                </ErrorMsg>
+                }
+                
               </Form>
             </RightCard>
             </Container>
