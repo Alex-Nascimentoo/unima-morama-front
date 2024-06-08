@@ -42,12 +42,12 @@ function Layout(props: LayoutProps) {
               <Icon $src="/icon-products.svg" />
             </Link>
 
-            <Link to='/bank_account/dashboard'>
+            <Link to='/finance/dashboard'>
               <Icon $src="/icon-money.svg" />
             </Link>
             
-             <Link to='/finance/dashboard'>
-              <Icon $src="/icon-money.svg" />
+             <Link to='/bank_account/dashboard'>
+              <Icon $src="/icon-wallet.svg" />
             </Link>
           </SideBar>
         </div>
