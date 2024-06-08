@@ -10,6 +10,7 @@ function Login() {
   const [inputs, setInputs] = useState({ email: '', password: '' });
   const { setAuthUser } = useAuth()
   const navigate = useNavigate();
+  setAuthUser(false)
   
   const handleChange = (event: any) => {
     const name = event.target.name;
