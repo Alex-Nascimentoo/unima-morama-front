@@ -31,7 +31,7 @@ const mockedPieGraphValue = {
   thirdAttributeName: 'Gasto 3' 
 }
 
-function Home() {
+function MainDashboard() {
   return (
     <HomeContainer>
       <CalendarContainer />
@@ -63,4 +63,4 @@ function Home() {
   )
 }
 
-export default Home
+export default MainDashboard
