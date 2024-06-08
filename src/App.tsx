@@ -32,16 +32,14 @@ function App() {
                     <Route path='create' element={<CreateContact />} />
                     <Route path='edit/:id' element={<EditContact />} />
                   </Route>
-
                   <Route path='/products'>
                     <Route path='dashboard' element={<ProductsDashboard />} />
                     <Route path='create' element={<CreateProducts />} />
                     <Route path='edit/:id' element={<EditProducts />} />
                   </Route>
-
                 </Route>
               </Routes>
-            </Layout>
+             </Layout>
           </BrowserRouter>
         </AuthProvider>
       </ThemeProvider>

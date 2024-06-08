@@ -48,8 +48,6 @@ function Layout(props: LayoutProps) {
           </SideBar>
         </div>
       )}
-
-
       {props.children}
     </>
   );
