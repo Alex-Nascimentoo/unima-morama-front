@@ -9,6 +9,7 @@ export const CalendarDayButtonStyle = styled.button`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0.5rem;
 
     border-width: 2px;
     border-color: ${theme.color.white};

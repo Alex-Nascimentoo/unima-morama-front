@@ -46,3 +46,7 @@ export const banks = {
   "nu": "Nu Pagamentos S.A",
   "mp": "Mercado Pago",
 }
+
+export const suppliers = [
+'John Doe Company LTDA', 'another company LTDA'
+];
