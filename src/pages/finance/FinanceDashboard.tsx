@@ -17,12 +17,12 @@ export default function FinanceDashboard() {
           <Header>
             <FilterButton onClick={() => toggleFilterState(prev => !prev)}>
               {filterState ?
-                <Filter state={filterState}>
+                <Filter $state={"recipt"}>
                   <p>Receitas</p>
                   <Icon $color={theme.color.green} $src="/icon-plus.svg" />
                 </Filter>
                 :
-                <Filter state={filterState}>
+                <Filter $state={"debt"}>
                   Despesas
                   <Icon $color={theme.color.red} $src="/icon-dash.svg" />
                 </Filter>
@@ -54,7 +54,7 @@ export default function FinanceDashboard() {
               <p>Pedido</p>
               <p>0,00 R$</p>
               <p>00/00/000</p>
-              <StatusCard status='active'>Ativo</StatusCard>
+              <StatusCard $status='active'>Ativo</StatusCard>
             </ContactCard>
 
             <ContactCard>
@@ -62,7 +62,7 @@ export default function FinanceDashboard() {
               <p>Pedido</p>
               <p>0,00 R$</p>
               <p>00/00/000</p>
-              <StatusCard status='paid'>Pago</StatusCard>
+              <StatusCard $status='paid'>Pago</StatusCard>
             </ContactCard>
 
             <ContactCard>
@@ -70,7 +70,7 @@ export default function FinanceDashboard() {
               <p>Pedido</p>
               <p>0,00 R$</p>
               <p>00/00/000</p>
-              <StatusCard status='late'>Atrasado</StatusCard>
+              <StatusCard $status='late'>Atrasado</StatusCard>
             </ContactCard>
           </ListContent>
         </section>
