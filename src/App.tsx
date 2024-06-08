@@ -38,15 +38,18 @@ function App() {
                       <Route path='create' element={<CreateContact />} />
                       <Route path='edit/:id' element={<EditContact />} />
                     </Route>
+
                     <Route path='/products'>
                       <Route path='dashboard' element={<ProductsDashboard />} />
                       <Route path='create' element={<CreateProducts />} />
                       <Route path='edit/:id' element={<EditProducts />} />
                     </Route>
+
                     <Route path='/finance'>
                       <Route path='dashboard' element={<FinanceDashboard />} />
                       <Route path='create' element={<CreateFinance />} />
                     </Route>
+                    
                     <Route path='/bank_account'>
                       <Route path='dashboard' element={<BankAccountDashboard />} />
                       <Route path='create' element={<CreateBankAccount />} />

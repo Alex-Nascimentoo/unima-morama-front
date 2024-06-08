@@ -1,10 +1,50 @@
 import { Container, Icon, PageHeader } from '../../styles/Global';
-import { ListHeader, ListContent } from '../../styles/pages/contactDashboard';
+import { ListHeader, ListContent, DeleteButton, ContactCard } from '../../styles/pages/contactDashboard';
 import { Button } from '../../styles/components';
 import { Link } from 'react-router-dom';
-import { ContactCard } from '../../styles/components/contactCard';
+import { useEffect, useState } from 'react';
+import api from '../../api/api';
 
 export default function ContactDashboard() {
+  const [contacts, setContacts] = useState(
+    [{
+      "id": 0,
+      "name": "Fornecedor",
+      "created_at": "",
+      "client_id": 0
+    }]
+);
+
+  const fetchContacts = async () => {
+    try {
+      const response = await api.get(`/supplier`);
+      
+      if (response.status === 200) {
+        setContacts(response.data);
+      } 
+    } catch (error: any) {
+      console.error('Error:', error.message);
+    }
+  }
+
+  const deleteContacts = async (supplierId: number) => {
+    try {
+      const response = await api.delete(`/supplier/${supplierId}`);
+      
+      if (response.status === 200) {
+        alert("Fonecedor excluído com sucesso.")
+      } 
+    } catch (error: any) {
+      console.error('Error:', error.message);
+    }
+    fetchContacts()
+  }
+  
+  useEffect(() => {
+    fetchContacts()
+  }, []);
+
+  
   return (
     <main>
       <Container>
@@ -23,50 +63,34 @@ export default function ContactDashboard() {
         <section>
           <ListHeader>
             <h2 id='company-name'>Nome Fantasia</h2>
-            <h2>CNPJ/CPF</h2>
             <h2>Opções</h2>
           </ListHeader>
 
           <ListContent>
-            <ContactCard>
-              <p>John Doe's Company</p>
-
-              <p>00.000.000/0000-00</p>
-
-              <div>
-                <Link to='/contact/edit/1'>
-                  <Icon
-                    $src='/icon-pencil.svg'
-                    $size='1.6rem'
-                  />
-                </Link>
-
-                <Icon
-                  $src='/icon-trash.svg'
-                  $size='1.6rem'
-                />
-              </div>
-            </ContactCard>
             
-            <ContactCard>
-              <p>John Doe's Company</p>
+            {contacts.map(contact => (
+              <ContactCard key={`card ${contact.id}`}>
+                <p>{contact.name}</p>
 
-              <p>00.000.000/0000-00</p>
+                <div>
+                  <Link to={`/contact/edit/${contact.id}`} key={contact.id}>
+                    <Icon
+                      $src='/icon-pencil.svg'
+                      $size='1.6rem'
+                    />
+                  </Link>
 
-              <div>
-                <Link to='/contact/edit/2'>
-                  <Icon
-                    $src='/icon-pencil.svg'
-                    $size='1.6rem'
-                  />
-                </Link>
-
-                <Icon
-                  $src='/icon-trash.svg'
-                  $size='1.6rem'
-                />
-              </div>
-            </ContactCard>
+                  <DeleteButton onClick={
+                    () => deleteContacts(contact.id)
+                  }>
+                    <Icon
+                      $src='/icon-trash.svg'
+                      $size='1.6rem'
+                    />
+                  </DeleteButton>
+                </div>
+              </ContactCard>
+            ))}
           </ListContent>
         </section>
       </Container>

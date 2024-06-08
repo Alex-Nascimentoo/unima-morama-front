@@ -3,8 +3,8 @@ import { theme } from '../Theme';
 
 export const ListHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: end;
   
   background-color: ${theme.color.accent};
   border-radius: 10px;
@@ -32,9 +32,8 @@ export const ListContent = styled.div`
 
 export const ContactCard = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: end;
 
   padding: 1rem;
 
@@ -62,4 +61,14 @@ export const ContactCard = styled.div`
       cursor: pointer;
     }
   }
+`;
+
+export const DeleteButton = styled.button`
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 `;

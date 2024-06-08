@@ -1,14 +1,56 @@
+import { useParams } from 'react-router-dom';
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
-import { Form, Label, SelectInput, TextInput } from '../../styles/pages/createContact';
-import { states } from '../../utils/auxData';
+import { Form, Label, TextInput } from '../../styles/pages/createContact';
+import api from '../../api/api';
+import { ChangeEvent, useEffect, useState } from 'react';
 
-async function handleSubmit(e: any) {
-  e.preventDefault();
-  alert("Contato editado com sucesso!");
-}
+
 
 function EditContact() {
+  const { id } = useParams()
+  const [ contactContent, setContactContent ] = useState("")
+
+  const fetchContact = async () => {
+    try {
+      const response = await api.get(`/supplier/${id}`);
+      
+      if (response.status === 200) {
+        setContactContent(response.data.name);
+      } 
+    } catch (error: any) {
+      console.error('Error:', error.message);
+    }
+  }
+
+  const editContact = async () => {
+    try {
+      const response = await api.patch(`/supplier/${id}`);
+      
+      if (response.status === 200) {
+        setContactContent(response.data.name);
+        alert("Contato editado com sucesso!")
+      } 
+    } catch (error: any) {
+      console.error('Error:', error.message);
+    }
+  }
+  
+  async function handleSubmit(e: any) {
+    e.preventDefault();
+    alert("Contato editado com sucesso!");
+    editContact()
+  }
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setContactContent(e.target.value); 
+  };
+
+
+  useEffect(() => {
+    fetchContact()
+  }, [id]);
+  
   return (
     <main>
       <Container>
@@ -17,76 +59,13 @@ function EditContact() {
         </PageHeader>
 
         <Form>
-          {/* First row */}
-          <Label>
-            CNPJ/CPF
-            <TextInput
-              placeholder='00.000.000/0001-00'
-            />
-          </Label>
-
-          <Label>
-            Telefone
-            <TextInput
-              placeholder='(00) 90000-0000'
-            />
-          </Label>
-
           {/* Second row */}
           <Label className='full-column'>
             Nome Fantasia
             <TextInput
               placeholder='Ex: Empresa Bonita'
-            />
-          </Label>
-
-          {/* Third row */}
-          <Label className='full-column'>
-            Razão Social
-            <TextInput
-              placeholder='Ex: Empresa Bonita LTDA'
-            />
-          </Label>
-
-          {/* Fourth row */}
-          <Label>
-            CEP
-            <TextInput
-              placeholder='00-000.000'
-            />
-          </Label>
-
-          <Label>
-            UF
-            <SelectInput>
-              { 
-                Object.entries(states).map(([key, value]) => (
-                  <option value={key}>{ value }</option>
-                ))
-              }
-            </SelectInput>
-          </Label>
-
-          {/* Fifth row */}
-          <Label>
-            Cidade
-            <TextInput
-              placeholder='Ex: Maceió'
-            />
-          </Label>
-
-          <Label>
-            Bairro
-            <TextInput
-              placeholder='Ex: Bairro Linda Moradia'
-            />
-          </Label>
-          
-          {/* Sixth row */}
-          <Label className='full-column'>
-            Endereço
-            <TextInput
-              placeholder='Ex: Rua Muito Linda, n° 7'
+              value={contactContent}
+              onChange={handleChange}
             />
           </Label>
 
