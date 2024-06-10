@@ -1,34 +1,37 @@
-import { Container, Icon, PageHeader } from '../../styles/Global';
+import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Link } from 'react-router-dom';
-import { ListContent, ListHeader, ContactCard, StatusCard, Filter, FilterButton, Header } from '../../styles/pages/financeDashboard';
-import { useState } from 'react';
-import { theme } from '../../styles/Theme';
+import { ListContent, ListHeader, ContactCard, Header } from '../../styles/pages/financeDashboard';
+import api from '../../api/api';
+import { useEffect, useState } from 'react';
 
 export default function FinanceDashboard() {
-  const [ filterState, toggleFilterState ] = useState(true);
+  const [ sales, setSales ] = useState([{ menu_item_id: 0, price: 0, quantity: 0, total: 0.00}])  
 
+  const fetchContacts = async () => {
+    try {
+      const response = await api.get(`/sale`);
+      
+      if (response.status === 200) {
+        setSales(response.data);
+      } 
+    } catch (error: any) {
+      console.error('Error:', error.message);
+    }
+  }
+
+  useEffect(() => {
+    fetchContacts()
+  },[])
+  
   return (
+    
     <main>
       <Container>
         <PageHeader>
           <h1>Financeiro</h1>
           
           <Header>
-            <FilterButton onClick={() => toggleFilterState(prev => !prev)}>
-              {filterState ?
-                <Filter $state={"recipt"}>
-                  <p>Receitas</p>
-                  <Icon $color={theme.color.green} $src="/icon-plus.svg" />
-                </Filter>
-                :
-                <Filter $state={"debt"}>
-                  Despesas
-                  <Icon $color={theme.color.red} $src="/icon-dash.svg" />
-                </Filter>
-              }
-            </FilterButton>
-
             <Link
               to='/finance/create'
             >
@@ -41,37 +44,21 @@ export default function FinanceDashboard() {
 
         <section>
           <ListHeader>
-            <h2 id='header-client-name'>Cliente</h2>
-            <h2>Pedido</h2>
+            <h2 id='header-client-name'>Id</h2>
             <h2>Valor</h2>
-            <h2>Venc.</h2>
-            <h2>Status</h2>
+            <h2>Quantidade</h2>
+            <h2>Total</h2>
           </ListHeader>
 
           <ListContent>
-            <ContactCard>
-              <p>John Doe's Company</p>
-              <p>Pedido</p>
-              <p>0,00 R$</p>
-              <p>00/00/000</p>
-              <StatusCard $status='active'>Ativo</StatusCard>
-            </ContactCard>
-
-            <ContactCard>
-              <p>John Doe's Company</p>
-              <p>Pedido</p>
-              <p>0,00 R$</p>
-              <p>00/00/000</p>
-              <StatusCard $status='paid'>Pago</StatusCard>
-            </ContactCard>
-
-            <ContactCard>
-              <p>John Doe's Company</p>
-              <p>Pedido</p>
-              <p>0,00 R$</p>
-              <p>00/00/000</p>
-              <StatusCard $status='late'>Atrasado</StatusCard>
-            </ContactCard>
+            {sales.map(sale => (
+              <ContactCard>
+                <p key={`id ${sale.menu_item_id}`}>{sale.menu_item_id}</p>
+                <p key={`price ${sale.menu_item_id}`}>{sale.price}</p>
+                <p key={`quantity ${sale.menu_item_id}`}>{sale.quantity}</p>
+                <p key={`total ${sale.menu_item_id}`}>{sale.total}</p>
+              </ContactCard>
+            ))}
           </ListContent>
         </section>
       </Container>

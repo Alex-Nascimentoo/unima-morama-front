@@ -10,8 +10,8 @@ export default function IngredientDashboard() {
         [
             {
                 "id": 0,
-                "name": "Placeholder",
-                "created_at": "Placeholder",
+                "name": "",
+                "created_at": "",
                 "client_id": 0
             },
 
@@ -21,12 +21,12 @@ export default function IngredientDashboard() {
         [
             {
                 "id": 0,
-                "name": "Placeholder",
-                "quantity": 0,
-                "unit_system": "Placeholder",
-                "price": "Placeholder",
-                "total": "Placeholder",
-                "created_at": "Placeholders",
+                "name": "",
+                "quantity": "",
+                "unit_system": "",
+                "price": "",
+                "total": "",
+                "created_at": "",
                 "ingredient_id": 0,
                 "client_id": 0
             },

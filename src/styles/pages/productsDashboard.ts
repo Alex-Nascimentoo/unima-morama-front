@@ -4,7 +4,7 @@ import { theme } from "../Theme";
 export const ListHeader = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
+  justify-items: end;
   
   background-color: ${theme.color.accent};
   border-radius: 10px;
@@ -15,9 +15,11 @@ export const ListHeader = styled.div`
 
   color: ${theme.color.white};
 
+  #cod {
+    justify-self: left;
+  }
   #name {
-    grid-column: span 2;
-
+    grid-column: span 3;
     justify-self: left;
   }
 `;
@@ -25,7 +27,7 @@ export const ListHeader = styled.div`
 export const ContactCard = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  justify-items: center;
+  justify-items: end;
   align-items: center;
 
   padding: 1rem;
@@ -36,8 +38,12 @@ export const ContactCard = styled.div`
 
   font-size: 1.3rem;
 
+  .cod {
+    justify-self: left;
+  }
+
   .name {
-    grid-column: span 2;
+    grid-column: span 3;
     justify-self: left;
   }
 

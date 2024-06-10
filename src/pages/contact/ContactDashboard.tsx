@@ -4,6 +4,7 @@ import { Button } from '../../styles/components';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../../api/api';
+import { toast } from 'react-toastify';
 
 export default function ContactDashboard() {
   const [contacts, setContacts] = useState(
@@ -31,18 +32,19 @@ export default function ContactDashboard() {
     try {
       const response = await api.delete(`/supplier/${supplierId}`);
       
-      if (response.status === 200) {
-        alert("Fonecedor excluído com sucesso.")
+      if (response.status === 204) {
+        fetchContacts()
+        toast.success("Fonecedor excluído com sucesso.")
+        console.log("excluiu")
       } 
     } catch (error: any) {
-      console.error('Error:', error.message);
+        toast.error("Erro na exclusão do fornecedor.");
     }
-    fetchContacts()
   }
   
   useEffect(() => {
     fetchContacts()
-  }, []);
+  }, [ ]);
 
   
   return (

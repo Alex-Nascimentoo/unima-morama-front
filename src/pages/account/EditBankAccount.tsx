@@ -1,10 +1,11 @@
+import { toast } from 'react-toastify';
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Form, Label, TextInput } from '../../styles/pages/createContact';
 
 async function handleSubmit(e: any) {
   e.preventDefault();
-  alert("Conta bancária editada com sucesso!");
+  toast.success("Conta bancária editada com sucesso!");
 }
 
 function EditBankAccount() {

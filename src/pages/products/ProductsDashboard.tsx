@@ -1,10 +1,46 @@
 import { Icon, PageHeader } from '../../styles/Global';
-import { ListContent } from '../../styles/pages/contactDashboard';
+import { DeleteButton, ListContent } from '../../styles/pages/contactDashboard';
 import { Button } from '../../styles/components';
 import { Link } from 'react-router-dom';
 import { ContactCard, Container, ListHeader } from '../../styles/pages/productsDashboard';
+import { useEffect, useState } from 'react';
+import api from '../../api/api';
+import { toast } from 'react-toastify';
 
 export default function ProductsDashboard() {
+  const [ productsContent, setProductsContent ] = useState([{ name:"", price: "", id: 0 }])
+
+  const fetchProducts = async () => {
+    try {
+      const response = await api.get(`/menu-item/`);
+      
+      if (response.status === 200) {
+        setProductsContent(response.data);
+      } 
+    } catch (error: any) {
+      console.error('Error:', error.message);
+    }
+  }
+
+
+  const deleteProduct = async (itemId: number) => {
+    try {
+      const response = await api.delete(`/menu-item/${itemId}`);
+      
+      if (response.status === 204) {
+        toast.success("Produto excluído com sucesso.")
+        fetchProducts();
+      } 
+    } catch (error: any) {
+        toast.error("Erro na exclusão do Produto.");
+    }
+  }
+  
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  
   return (
     <main>
       <Container>
@@ -22,80 +58,27 @@ export default function ProductsDashboard() {
 
         <section>
           <ListHeader>
-            <h2>Cód.</h2>
             <h2 id="name">Nome</h2>
             <h2>Valor</h2>
             <h2>Editar</h2>
           </ListHeader>
 
           <ListContent>
-            <ContactCard>
-              <p>00000</p>
-
-              <p className="name">samir buarque</p>
-
-              <p>R$ 00</p>
-              
-
-              <div>
-                <Link to='/contact/edit/1'>
+            {productsContent.map((product) => (
+              <ContactCard key={`Card ${product.name}`}>
+                <p className="name" key={`Name ${product.name}`}>{product.name}</p>
+                <p key={`Price ${product.name}`}>{product.price}</p>
+                <DeleteButton key={`Button ${product.name}`} onClick={
+                    () => deleteProduct(product.id)
+                }>               
                   <Icon
-                    $src='/icon-pencil.svg'
+                    key={`Trash Icon ${product.name}`}
+                    $src='/icon-trash.svg'
                     $size='1.6rem'
                   />
-                </Link>
-
-                <Icon
-                  $src='/icon-trash.svg'
-                  $size='1.6rem'
-                />
-              </div>
-            </ContactCard>
-            
-            <ContactCard>
-              <p>00000</p>
-
-              <p className="name">samir buarque</p>
-
-              <p>R$ 00</p>
-              
-
-              <div>
-                <Link to='/contact/edit/1'>
-                  <Icon
-                    $src='/icon-pencil.svg'
-                    $size='1.6rem'
-                  />
-                </Link>
-
-                <Icon
-                  $src='/icon-trash.svg'
-                  $size='1.6rem'
-                />
-              </div>
-            </ContactCard>
-            <ContactCard>
-              <p>00000</p>
-
-              <p className="name">samir buarque</p>
-
-              <p>R$ 00</p>
-              
-
-              <div>
-                <Link to='/contact/edit/1'>
-                  <Icon
-                    $src='/icon-pencil.svg'
-                    $size='1.6rem'
-                  />
-                </Link>
-
-                <Icon
-                  $src='/icon-trash.svg'
-                  $size='1.6rem'
-                />
-              </div>
-            </ContactCard>
+                </DeleteButton> 
+              </ContactCard>
+            ))}
           </ListContent>
         </section>
       </Container>

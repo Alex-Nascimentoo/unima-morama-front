@@ -3,8 +3,8 @@ import { theme } from '../Theme';
 
 export const ListHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  justify-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: end;
   
   background-color: ${theme.color.accent};
   border-radius: 10px;
@@ -29,15 +29,13 @@ export const ListContent = styled.div`
 
   padding-top: 1rem;
 
-  #client-name {
-    
-  }
+
 `;
 
 export const ContactCard = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  justify-items: center;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: end;
   align-items: center;
 
   padding: 1rem;

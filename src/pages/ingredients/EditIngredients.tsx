@@ -4,6 +4,7 @@ import { Button } from '../../styles/components';
 import { Form, Label, TextInput } from '../../styles/pages/createContact';
 import api from '../../api/api';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 function EditIngredient() {
   const { id } = useParams()
@@ -26,9 +27,10 @@ function EditIngredient() {
       const response = await api.patch(`/supplier/${id}`);
       
       if (response.status === 200) {
-        alert("Ingrediente editado com sucesso!")
+        toast.success("Ingrediente editado com sucesso!")
       } 
     } catch (error: any) {
+      toast.error("Erro na edição do ingrediente")
       console.error('Error:', error.message);
     }
   }

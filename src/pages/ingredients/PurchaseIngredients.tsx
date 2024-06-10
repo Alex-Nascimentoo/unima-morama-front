@@ -5,6 +5,7 @@ import { Form, Label, SelectInput, TextInput } from '../../styles/pages/createCo
 import api from '../../api/api';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { unit_systems } from '../../utils/auxData';
+import { toast } from 'react-toastify';
 
 function PurchaseIngredient() {
   const { id } = useParams();
@@ -33,11 +34,11 @@ function PurchaseIngredient() {
     e.preventDefault();
     try {
       const response = await api.post(`/ingredient-order/`, { quantity, price, unit_system, ingredient });
-      if (response.status === 200) {
-        alert("Compra realizada com sucesso!");
+      if (response.status === 201) {
+        toast.success("Compra realizada com sucesso!");
       } 
     } catch (error) {
-      console.error('Error purchasing ingredient:', error);
+      toast.error('Erro na compra do ingrediente.');
     }
   };
 

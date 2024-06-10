@@ -4,6 +4,7 @@ import { Button } from '../../styles/components';
 import { Form, Label, TextInput } from '../../styles/pages/createContact';
 import api from '../../api/api';
 import { ChangeEvent, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 
 
@@ -28,10 +29,10 @@ function EditContact() {
       const response = await api.patch(`/supplier/${id}`);
       
       if (response.status === 200) {
-        alert("Contato editado com sucesso!")
+        toast.success("Contato editado com sucesso!")
       } 
     } catch (error: any) {
-      console.error('Error:', error.message);
+      toast.error('Erro na edição de contatos.');
     }
   }
   
