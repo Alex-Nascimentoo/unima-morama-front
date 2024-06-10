@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { theme } from '../styles/Theme';
 import { Header, HeaderContainer, SideBar } from '../styles/Layout';
 import { useAuth } from '../hooks/useAuth';
+import { ToastContainer } from 'react-toastify';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -53,6 +54,8 @@ function Layout(props: LayoutProps) {
         </div>
       )}
       {props.children}
+      <ToastContainer
+        position="bottom-right" />
     </>
   );
 }
