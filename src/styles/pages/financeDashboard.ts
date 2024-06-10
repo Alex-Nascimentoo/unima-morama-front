@@ -3,7 +3,7 @@ import { theme } from '../Theme';
 
 export const ListHeader = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-items: end;
   
   background-color: ${theme.color.accent};
@@ -34,7 +34,7 @@ export const ListContent = styled.div`
 
 export const ContactCard = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-items: end;
   align-items: center;
 

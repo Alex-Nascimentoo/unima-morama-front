@@ -1,38 +1,37 @@
 import { useState } from 'react';
-import { Container, Icon, PageHeader } from '../../styles/Global';
-import { theme } from '../../styles/Theme';
-import { Label, SelectInput, TextInput } from '../../styles/pages/createContact';
+import { Container, PageHeader } from '../../styles/Global';
+import { Label, TextInput } from '../../styles/pages/createContact';
 import { Button, Form } from '../../styles/pages/createFinance';
-import { Filter, FilterButton } from '../../styles/pages/financeDashboard';
-import { clients, paymentMethods, banks } from '../../utils/auxData';
-
-async function handleSubmit(e: any) {
-  e.preventDefault();
-
-}
+import api from '../../api/api';
+import { toast } from 'react-toastify';
 
 function CreateFinance() {
-  const [ filterState, toggleFilterState ] = useState(true);
+  const [inputs, setInputs] = useState({ menu_item_id: '', price: '', quantity: '' });
+
+  const handleChange = (event: any) => {
+    const name = event.target.name;
+    const value = parseFloat(event.target.value);
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+  
+    try {
+      const response = await api.post(`/sale`, inputs);
+      if (response.status === 201) {
+        toast.success(`Transação cadastrada com sucesso.`)
+      } 
+    } catch (error: any) {
+      toast.error("Não foi possível criar uma nova transação")
+    }
+  };
 
   return (
     <main>
       <Container>
         <PageHeader>
           <h1>Nova Transação</h1>
-
-          <FilterButton onClick={() => toggleFilterState(prev => !prev)}>
-              {filterState ?
-                <Filter $state={"recipt"}>
-                  <p>Receita</p>
-                  <Icon $color={theme.color.green} $src="/icon-plus.svg" />
-                </Filter>
-                :
-                <Filter $state={"debt"}>
-                  Despesa
-                  <Icon $color={theme.color.red} $src="/icon-dash.svg" />
-                </Filter>
-              }
-            </FilterButton>
         </PageHeader>
 
         <Form>
@@ -40,54 +39,29 @@ function CreateFinance() {
           <Label>
             Nº pedido
             <TextInput
-              placeholder='0000'
-            />
+              name="menu_item_id"
+              placeholder='Ex: 01'
+              onChange={handleChange}
+              />
           </Label>
-
-          <Label className='third-column'>
-            Cliente
-            <SelectInput>
-              { 
-                Object.entries(clients).map(([key, value]) => (
-                  <option value={key}>{ value }</option>
-                ))
-              }
-            </SelectInput>
-          </Label>
-
-          {/* Second row */}
-          <Label>
-            Forma de pgt.
-            <SelectInput>
-              { 
-                Object.entries(paymentMethods).map(([key, value]) => (
-                  <option value={key}>{ value }</option>
-                ))
-              }
-            </SelectInput>
-          </Label>
+          
           <Label>
             Valor
             <TextInput
-              placeholder='99.999,99'
+              name="price"
+              placeholder='Ex: 24,99'
+              type='number'
+              onChange={handleChange}
             />
           </Label>
 
           <Label>
-            Conta
-            <SelectInput>
-              { 
-                Object.entries(banks).map(([key, value]) => (
-                  <option value={key}>{ value }</option>
-                ))
-              }
-            </SelectInput>
-          </Label>
-
-          <Label>
-            Vencimento
+            Quantidade
             <TextInput
-              placeholder='00/00/0000'
+              name="quantity"
+              placeholder='Ex: 12'
+              type='number'
+              onChange={handleChange}
             />
           </Label>
 
