@@ -1,9 +1,9 @@
-import { Container, Icon, PageHeader } from '../../styles/Global';
+import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Link } from 'react-router-dom';
 import { ListContent, ListHeader, ContactCard, Header } from '../../styles/pages/financeDashboard';
 import api from '../../api/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function FinanceDashboard() {
   const [ sales, setSales ] = useState([{ menu_item_id: 0, price: 0, quantity: 0, total: 0.00}])  
@@ -19,6 +19,10 @@ export default function FinanceDashboard() {
       console.error('Error:', error.message);
     }
   }
+
+  useEffect(() => {
+    fetchContacts()
+  },[])
   
   return (
     

@@ -39,7 +39,7 @@ export default function ProductsDashboard() {
 
   useEffect(() => {
     fetchProducts();
-  }, [ ]);
+  }, []);
   
   return (
     <main>
