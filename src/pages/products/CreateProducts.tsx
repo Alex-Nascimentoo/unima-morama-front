@@ -1,6 +1,6 @@
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
-import { Form, Label, SelectInput, TextInput } from '../../styles/pages/createContact';
+import { Form, Label, TextInput } from '../../styles/pages/createContact';
 import api from '../../api/api';
 import { useState } from 'react';
 import { toast } from 'react-toastify';

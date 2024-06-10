@@ -29,7 +29,6 @@ export default function ProductsDashboard() {
       
       if (response.status === 204) {
         toast.success("Produto excluído com sucesso.")
-        console.log("excluiu")
         fetchProducts();
       } 
     } catch (error: any) {
@@ -66,13 +65,14 @@ export default function ProductsDashboard() {
 
           <ListContent>
             {productsContent.map((product) => (
-              <ContactCard>
-                <p className="name">{product.name}</p>
-                <p>{product.price}</p>
-                <DeleteButton onClick={
+              <ContactCard key={`Card ${product.name}`}>
+                <p className="name" key={`Name ${product.name}`}>{product.name}</p>
+                <p key={`Price ${product.name}`}>{product.price}</p>
+                <DeleteButton key={`Button ${product.name}`} onClick={
                     () => deleteProduct(product.id)
                 }>               
                   <Icon
+                    key={`Trash Icon ${product.name}`}
                     $src='/icon-trash.svg'
                     $size='1.6rem'
                   />
