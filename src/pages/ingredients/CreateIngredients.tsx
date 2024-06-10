@@ -3,6 +3,7 @@ import api from '../../api/api';
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Form, Label, TextInput } from '../../styles/pages/createContact';
+import { toast } from 'react-toastify';
 
 function CreateIngredient() {
   const [ inputs, setInputs ] = useState({ name: '' });
@@ -19,10 +20,10 @@ function CreateIngredient() {
     try {
       const response = await api.post(`/ingredient`, inputs);
       if (response.status === 201) {
-        alert(`Ingrediente "${inputs.name} cadastrado com sucesso".`)
+        toast.success(`Ingrediente "${inputs.name}" cadastrado com sucesso".`)
       } 
     } catch (error: any) {
-      alert("Não foi possível criar um novo ingrediente")
+      toast.error("Não foi possível criar um novo ingrediente")
       console.error('Error:', error.message);
     }
   };

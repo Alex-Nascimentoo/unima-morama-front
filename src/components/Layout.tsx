@@ -5,6 +5,7 @@ import { theme } from '../styles/Theme';
 import { Header, HeaderContainer, SideBar } from '../styles/Layout';
 import { useAuth } from '../hooks/useAuth';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -46,10 +47,12 @@ function Layout(props: LayoutProps) {
             <Link to='/finance/dashboard'>
               <Icon $src="/icon-money.svg" />
             </Link>
-            
-             <Link to='/bank_account/dashboard'>
+            {/*
+            <Link to='/bank_account/dashboard'>
               <Icon $src="/icon-wallet.svg" />
             </Link>
+            */}
+             
           </SideBar>
         </div>
       )}

@@ -1,10 +1,11 @@
+import { toast } from 'react-toastify';
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Form, Label, TextInput } from '../../styles/pages/createContact';
 
 async function handleSubmit(e: any) {
   e.preventDefault();
-  alert("Nova conta bancária enviada para cadastro");
+  toast.success("Nova conta bancária enviada para cadastro");
 }
 
 function CreateBankAccount() {

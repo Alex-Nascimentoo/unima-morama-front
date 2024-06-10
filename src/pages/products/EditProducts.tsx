@@ -1,12 +1,12 @@
+import { toast } from 'react-toastify';
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Form, Label, SelectInput, TextInput } from '../../styles/pages/createContact';
 import { suppliers } from '../../utils/auxData';
-import { states } from '../../utils/auxData';
 
 async function handleSubmit(e: any) {
   e.preventDefault();
-  alert("Contato editado com sucesso!");
+  toast.success("Contato editado com sucesso!");
 }
 
 function EditProducts() {

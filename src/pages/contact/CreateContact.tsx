@@ -3,6 +3,7 @@ import api from '../../api/api';
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
 import { Form, Label, TextInput } from '../../styles/pages/createContact';
+import { toast } from 'react-toastify';
 
 function CreateContact() {
   const [ inputs, setInputs ] = useState({ name: '' });
@@ -19,11 +20,10 @@ function CreateContact() {
     try {
       const response = await api.post(`/supplier`, inputs);
       if (response.status === 201) {
-        alert(`Fonecedor "${inputs.name} cadastrado com sucesso".`)
+        toast.success(`Fonecedor "${inputs.name} cadastrado com sucesso".`)
       } 
     } catch (error: any) {
-      alert("Não foi possível criar um novo contato")
-      console.error('Error:', error.message);
+      toast.error("Não foi possível criar um novo contato")
     }
   };
   
