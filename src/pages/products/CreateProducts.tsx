@@ -1,65 +1,67 @@
 import { Container, PageHeader } from '../../styles/Global';
 import { Button } from '../../styles/components';
-import { suppliers } from '../../utils/auxData';
 import { Form, Label, SelectInput, TextInput } from '../../styles/pages/createContact';
-import { handleSubmit } from '../../controllers/contactController';
+import api from '../../api/api';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-function CreateProducts() {
+function PurchaseIngredient() {
+  const [ inputs, setInputs ] = useState({});
+  
+  const handleChange = (event: any) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    try {
+      const response = await api.post(`/ingredient-order/`, inputs);
+      if (response.status === 200) {
+        toast.success("Produto cadastrado com sucesso!");
+      } 
+    } catch (error) {
+      toast.error('Erro no cadastro do produto.');
+    }
+  };
+
   return (
     <main>
       <Container>
         <PageHeader>
-          <h1>Novo contato</h1>
+          <h1>Cadastrar produto</h1>
         </PageHeader>
 
-        <Form>
-          {/* First row */}
+        <Form onSubmit={handleSubmit}>
           <Label className='full-column'>
-            Nome
+            Name
             <TextInput
-              placeholder='Ex: John Doe'
+              name="name"
+              placeholder="Ex: Pizza"
+              onChange={handleChange}
             />
           </Label>
 
-          {/* Second row */}
           <Label className='full-column'>
-            Fornecedor
-            <SelectInput>
-              { 
-                suppliers.map((value, index) => (
-                  <option key={index} value={value}>
-                    {value}
-                  </option>
-                ))
-              }
-            </SelectInput>
-          </Label>
-
-          {/* Third row */}
-          <Label>
             Preço
-            <TextInput type='number'
-              placeholder='00-000.000'
+            <TextInput
+              name="price"
+              type="number"
+              step="0.01"
+              placeholder="Ex: 25.00"
+              onChange={handleChange}
             />
           </Label>
 
-          <Label>
-            Estoque
-            <TextInput 
-              placeholder='39'
-            />
-          </Label>
-
-          <Button
-            className='full-column'
-            onClick={handleSubmit}
-          >
-            Adicionar
+          
+          <Button className='full-column' type="submit">
+            Salvar
           </Button>
         </Form>
       </Container>
-    </main> 
-  )
+    </main>
+  );
 }
 
-export default CreateProducts
+export default PurchaseIngredient;
