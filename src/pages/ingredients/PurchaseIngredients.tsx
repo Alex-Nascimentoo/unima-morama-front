@@ -34,7 +34,7 @@ function PurchaseIngredient() {
     e.preventDefault();
     try {
       const response = await api.post(`/ingredient-order/`, { quantity, price, unit_system, ingredient });
-      if (response.status === 200) {
+      if (response.status === 201) {
         toast.success("Compra realizada com sucesso!");
       } 
     } catch (error) {

@@ -8,7 +8,7 @@ import { clients, paymentMethods, banks } from '../../utils/auxData';
 
 async function handleSubmit(e: any) {
   e.preventDefault();
-  alert("Novo contato enviado para cadastro");
+
 }
 
 function CreateFinance() {
