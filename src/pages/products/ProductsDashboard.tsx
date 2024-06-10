@@ -22,7 +22,6 @@ export default function ProductsDashboard() {
 
         <section>
           <ListHeader>
-            <h2 id="cod">Cód.</h2>
             <h2 id="name">Nome</h2>
             <h2>Valor</h2>
             <h2>Editar</h2>
@@ -30,56 +29,10 @@ export default function ProductsDashboard() {
 
           <ListContent>
             <ContactCard>
-              <p className="cod">00000</p>
 
               <p className="name">samir buarque</p>
 
               <p >R$ 00</p>
-              
-
-              <div>
-                <Link to='/contact/edit/1'>
-                  <Icon
-                    $src='/icon-pencil.svg'
-                    $size='1.6rem'
-                  />
-                </Link>
-
-                <Icon
-                  $src='/icon-trash.svg'
-                  $size='1.6rem'
-                />
-              </div>
-            </ContactCard>
-            
-            <ContactCard>
-              <p className="cod">00000</p>
-
-              <p className="name">samir buarque</p>
-
-              <p>R$ 00</p>
-              
-
-              <div>
-                <Link to='/contact/edit/1'>
-                  <Icon
-                    $src='/icon-pencil.svg'
-                    $size='1.6rem'
-                  />
-                </Link>
-
-                <Icon
-                  $src='/icon-trash.svg'
-                  $size='1.6rem'
-                />
-              </div>
-            </ContactCard>
-            <ContactCard>
-              <p className="cod">00000</p>
-
-              <p className="name">samir buarque</p>
-
-              <p>R$ 00</p>
               
 
               <div>

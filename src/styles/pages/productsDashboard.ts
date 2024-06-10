@@ -19,7 +19,7 @@ export const ListHeader = styled.div`
     justify-self: left;
   }
   #name {
-    grid-column: span 2;
+    grid-column: span 3;
     justify-self: left;
   }
 `;
@@ -43,7 +43,7 @@ export const ContactCard = styled.div`
   }
 
   .name {
-    grid-column: span 2;
+    grid-column: span 3;
     justify-self: left;
   }
 
