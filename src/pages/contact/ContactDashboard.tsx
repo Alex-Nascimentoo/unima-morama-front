@@ -32,7 +32,8 @@ export default function ContactDashboard() {
     try {
       const response = await api.delete(`/supplier/${supplierId}`);
       
-      if (response.status === 200) {
+      if (response.status === 204) {
+        fetchContacts()
         toast.success("Fonecedor excluído com sucesso.")
         console.log("excluiu")
       } 
@@ -43,7 +44,7 @@ export default function ContactDashboard() {
   
   useEffect(() => {
     fetchContacts()
-  }, [ contacts ]);
+  }, [ ]);
 
   
   return (

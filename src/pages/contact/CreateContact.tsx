@@ -20,7 +20,7 @@ function CreateContact() {
     try {
       const response = await api.post(`/supplier`, inputs);
       if (response.status === 201) {
-        toast.success(`Fonecedor "${inputs.name} cadastrado com sucesso".`)
+        toast.success(`Fonecedor "${inputs.name}" cadastrado com sucesso.`)
       } 
     } catch (error: any) {
       toast.error("Não foi possível criar um novo contato")
