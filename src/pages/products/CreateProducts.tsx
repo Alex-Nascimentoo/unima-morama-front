@@ -10,15 +10,18 @@ function PurchaseIngredient() {
   
   const handleChange = (event: any) => {
     const name = event.target.name;
-    const value = event.target.value;
+    let value = event.target.value;
+    if (name === 'price') {
+      value = parseFloat(value);
+    }
     setInputs(values => ({...values, [name]: value}))
   }
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await api.post(`/ingredient-order/`, inputs);
-      if (response.status === 200) {
+      const response = await api.post(`/menu-item/`, inputs);
+      if (response.status === 201) {
         toast.success("Produto cadastrado com sucesso!");
       } 
     } catch (error) {

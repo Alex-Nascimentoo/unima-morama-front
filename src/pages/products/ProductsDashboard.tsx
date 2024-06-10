@@ -15,7 +15,7 @@ export default function ProductsDashboard() {
       const response = await api.get(`/menu-item/`);
       
       if (response.status === 200) {
-        setProductsContent(response.data.name);
+        setProductsContent(response.data);
       } 
     } catch (error: any) {
       console.error('Error:', error.message);
@@ -23,23 +23,24 @@ export default function ProductsDashboard() {
   }
 
 
-  const deleteContacts = async (itemId: number) => {
+  const deleteProduct = async (itemId: number) => {
     try {
       const response = await api.delete(`/menu-item/${itemId}`);
       
-      if (response.status === 200) {
-        toast.success("Fonecedor excluído com sucesso.")
+      if (response.status === 204) {
+        toast.success("Produto excluído com sucesso.")
         console.log("excluiu")
+        fetchProducts();
       } 
     } catch (error: any) {
-        toast.error("Erro na exclusão do fornecedor.");
+        toast.error("Erro na exclusão do Produto.");
     }
   }
   
 
   useEffect(() => {
     fetchProducts();
-  }, [ productsContent ]);
+  }, [ ]);
   
   return (
     <main>
@@ -69,7 +70,7 @@ export default function ProductsDashboard() {
                 <p className="name">{product.name}</p>
                 <p>{product.price}</p>
                 <DeleteButton onClick={
-                    () => deleteContacts(product.id)
+                    () => deleteProduct(product.id)
                 }>               
                   <Icon
                     $src='/icon-trash.svg'
