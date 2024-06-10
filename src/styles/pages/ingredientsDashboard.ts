@@ -25,7 +25,8 @@ export const ListHeader = styled.div`
   padding: 1rem;
 
   color: ${theme.color.white};
-
+  margin-top: 1rem;
+  padding: 1rem;
   #company-name {
     grid-column: span 3;
 
@@ -42,7 +43,7 @@ export const ListHeaderPurchases = styled.div`
   border-radius: 10px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
 
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   padding: 1rem;
 
   color: ${theme.color.white};
