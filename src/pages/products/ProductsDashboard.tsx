@@ -22,7 +22,7 @@ export default function ProductsDashboard() {
 
         <section>
           <ListHeader>
-            <h2>Cód.</h2>
+            <h2 id="cod">Cód.</h2>
             <h2 id="name">Nome</h2>
             <h2>Valor</h2>
             <h2>Editar</h2>
@@ -30,11 +30,11 @@ export default function ProductsDashboard() {
 
           <ListContent>
             <ContactCard>
-              <p>00000</p>
+              <p className="cod">00000</p>
 
               <p className="name">samir buarque</p>
 
-              <p>R$ 00</p>
+              <p >R$ 00</p>
               
 
               <div>
@@ -53,7 +53,7 @@ export default function ProductsDashboard() {
             </ContactCard>
             
             <ContactCard>
-              <p>00000</p>
+              <p className="cod">00000</p>
 
               <p className="name">samir buarque</p>
 
@@ -75,7 +75,7 @@ export default function ProductsDashboard() {
               </div>
             </ContactCard>
             <ContactCard>
-              <p>00000</p>
+              <p className="cod">00000</p>
 
               <p className="name">samir buarque</p>
 
